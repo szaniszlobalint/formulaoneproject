@@ -1,0 +1,19 @@
+<div class="loginform">
+  <form [formGroup]="userForm" (ngSubmit)="loginUser()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput  formControlName="username">
+    </mat-form-field>
+    <div *ngIf="userForm.controls['username'].invalid  && (userForm.controls['username'].dirty || userForm.controls['username'].touched)" class="alert">
+      Please enter a name that only contains letters and numbers
+    </div>
+    <div></div>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="'password'" formControlName="password">
+    </mat-form-field>
+    <div></div>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!userForm.valid">Submit</button>
+  </form>
+</div>
+

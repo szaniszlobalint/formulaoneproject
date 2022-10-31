@@ -1,0 +1,55 @@
+<div *ngIf="isUserLoggedIn; else elseBlock">
+<div class="system-selectors">
+  <mat-form-field appearance="fill" class="a-selector" >
+    <mat-label>Choose System</mat-label>
+    <mat-select [(ngModel)]="chosenTeam">
+      <mat-option *ngFor="let team of formulaOneTeams" [value]=team.id>
+        {{team.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="teamcreationform">
+    <div>All the fields are required</div>
+    <form [formGroup]="teamForm" (ngSubmit)="updateTeam(chosenTeam)">
+      <mat-form-field appearance="fill">
+        <mat-label>Team name</mat-label>
+        <input matInput  formControlName="name">
+      </mat-form-field>
+      <div *ngIf="teamForm.controls['name'].invalid  && (teamForm.controls['name'].dirty || teamForm.controls['name'].touched)" class="alert">
+        Please enter a name that only contains letters and spaces
+      </div>
+      <div></div>
+      <mat-form-field appearance="fill">
+        <mat-label>Foundation Year</mat-label>
+        <input matInput formControlName="foundationYear">
+      </mat-form-field>
+      <div *ngIf="teamForm.controls['foundationYear'].invalid  && (teamForm.controls['foundationYear'].dirty || teamForm.controls['foundationYear'].touched)" class="alert">
+        Please enter a year between 1850 and 2022
+      </div>
+      <div></div>
+      <mat-form-field appearance="fill">
+        <mat-label>World Championships Won</mat-label>
+        <input matInput  formControlName="worldChampionshipsWon">
+      </mat-form-field>
+      <div *ngIf="teamForm.controls['worldChampionshipsWon'].invalid  && (teamForm.controls['worldChampionshipsWon'].dirty || teamForm.controls['worldChampionshipsWon'].touched)" class="alert">
+        Please enter a number between 0 and 100
+      </div>
+      <div></div>
+      <mat-form-field appearance="fill">
+        <mat-label>Paid the entry fee</mat-label>
+        <input matInput  formControlName="paidTheEntryFee">
+      </mat-form-field>
+      <div *ngIf="teamForm.controls['paidTheEntryFee'].invalid  && (teamForm.controls['paidTheEntryFee'].dirty || teamForm.controls['paidTheEntryFee'].touched)" class="alert">
+        Please enter either 0 as a no or 1 as a yes
+      </div>
+      <div></div>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!teamForm.valid">Submit</button>
+    </form>
+  </div>
+
+</div>
+</div>
+<ng-template #elseBlock>This page requires you to be logged in!</ng-template>
+
+
