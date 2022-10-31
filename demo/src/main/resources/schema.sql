@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS formulateam;
+CREATE TABLE formulateam (
+ id INTEGER NOT NULL AUTO_INCREMENT,
+ name VARCHAR(128) NOT NULL,
+ foundationyear INTEGER NOT NULL,
+ worldChampionshipswon INTEGER NOT NULL,
+ paidTheEntryfee INTEGER,
+ PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+ id INTEGER NOT NULL AUTO_INCREMENT,
+ username VARCHAR(128) NOT NULL,
+ password VARCHAR(128) NOT NULL,
+ PRIMARY KEY (id)
+);
