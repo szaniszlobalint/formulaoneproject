@@ -18,22 +18,16 @@ public class FormulaOneTeam {
     @Pattern(regexp = "[a-zA-Z ]*", message = "Name should only contain letters and spaces")
     private String name;
     @Column(name="foundationyear", nullable = false)
-    @NotBlank(message = "Year is mandatory")
     @Min(value = 1850, message = "Age should not be less than 1850")
     @Max(value = 2022, message = "Age should not be greater than 2022")
-    @Pattern(regexp = "[0-9]*", message = "Should be a number between 1850 and 2022")
     private int foundationYear;
     @Column(name="worldchampionshipswon", nullable = false)
-    @NotBlank(message = "Championships won is mandatory")
     @Min(value = 0, message = "Age should not be less than 0")
     @Max(value = 100, message = "Age should not be greater than 100")
-    @Pattern(regexp = "[0-9]*", message = "Should be a number between 0 and 100")
     private int worldChampionshipsWon;
     @Column(name="paidtheentryfee",nullable = false)
-    @NotBlank(message = "Entry fee is mandatory")
     @Min(value = 0, message = "Age should not be less than 0")
     @Max(value = 1, message = "Age should not be greater than 1")
-    @Pattern(regexp = "[0-1]*", message = "Should be number 0 or 1")
     private int paidTheEntryFee;
 
     public FormulaOneTeam(String name, int foundationYear, int worldChampionshipsWon, int paidTheEntryFee) {
