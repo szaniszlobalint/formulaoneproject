@@ -1,4 +1,5 @@
 <div *ngIf="isUserLoggedIn; else elseBlock">
+  <div class="teamcreationform">
 <div class="system-selectors">
   <mat-form-field appearance="fill" class="a-selector" >
     <mat-label>Choose System</mat-label>
@@ -9,7 +10,6 @@
     </mat-select>
   </mat-form-field>
 
-  <div class="teamcreationform">
     <div>All the fields are required</div>
     <form [formGroup]="teamForm" (ngSubmit)="updateTeam(chosenTeam)">
       <mat-form-field appearance="fill">

@@ -1,4 +1,5 @@
 <div *ngIf="isUserLoggedIn; else elseBlock">
+  <div class="teamcreationform">
 <mat-form-field appearance="fill" class="a-selector" >
   <mat-label>Choose System</mat-label>
   <mat-select [(ngModel)]="chosenTeam">
@@ -7,7 +8,8 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-
+<div></div>
 <button mat-raised-button color="accent" (click)="deleteTeam(chosenTeam)" type="button">Delete</button>
+    </div>
 </div>
 <ng-template #elseBlock>This page requires you to be logged in!</ng-template>
